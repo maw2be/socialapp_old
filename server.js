@@ -16,13 +16,14 @@ app.get("/api/post", function (req, res, next){
 
 
 app.post("/api/post", function(req,res, next){
-	var post = new Post({
+	var post = new Posts({
 		username: req.body.username,
 		body: req.body.body
 		})
-		post.save(function(err, post){
+		posts.save(function(err, post){
 			if (err){return next(err)}
 			res.json(201,post)
+			console.log(req.body.body)
 		})
 })
 
